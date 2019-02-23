@@ -1,6 +1,7 @@
 /.idea
 /target
 /src/main/resources
+/src/main/java/com/jdbc/TestClass.java
 /src/test/resources
 /src/db.properties
 
