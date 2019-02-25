@@ -24,7 +24,7 @@ public class QueryApp {
                     System.out.println("Exit!");
                     System.exit(0);
                 }
-                ExecuteQuery.executeQueryApp(statement, query);
+                ExecuteQuery.executeQueryApp(connection, statement, query);
             }
         }
     }
