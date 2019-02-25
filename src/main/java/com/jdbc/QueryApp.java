@@ -13,10 +13,11 @@ public class QueryApp {
         try (Connection connection = new CreateConnection().getProperties(dbSettingsPathName);
              Statement statement = connection.createStatement();
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+
             while (true) {
-                System.out.println("----------------------------------");
-                System.out.println("Enter SQL Query or 'Q' to Escape: ");
-                System.out.println("----------------------------------");
+                System.out.println("+-----------------------------------+");
+                System.out.println("| Enter SQL Query or 'Q' to Escape: |");
+                System.out.println("+-----------------------------------+");
 
                 String query = bufferedReader.readLine();
 
@@ -24,6 +25,7 @@ public class QueryApp {
                     System.out.println("Exit!");
                     System.exit(0);
                 }
+
                 ExecuteQuery.executeQueryApp(statement, query);
             }
         }
