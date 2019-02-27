@@ -1,17 +1,20 @@
-package com.jdbc;
+package com.ozzot.jdbc;
+
+import com.ozzot.jdbc.service.ExecuteQuery;
+import com.ozzot.jdbc.utils.ConnectionCreator;
 
 import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class QueryApp {
+    private static final String DB_PROPERTIES = System.getProperty("properties.location");
+
     public static void main(String[] args) throws IOException, SQLException {
 
-        String dbSettingsPathName = args[0];
+        isDbPropertiesNotNull();
 
-        try (Connection connection = new CreateConnection().getProperties(dbSettingsPathName);
-             Statement statement = connection.createStatement();
+        try (Connection connection = ConnectionCreator.getConnection(DB_PROPERTIES);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
             while (true) {
@@ -26,8 +29,15 @@ public class QueryApp {
                     System.exit(0);
                 }
 
-                ExecuteQuery.executeQueryApp(statement, query);
+                ExecuteQuery.executeQueryApp(connection, query);
             }
+        }
+    }
+
+    private static void isDbPropertiesNotNull() {
+
+        if (DB_PROPERTIES == null) {
+            throw new IllegalArgumentException(DB_PROPERTIES + " is undefined");
         }
     }
 

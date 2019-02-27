@@ -31,7 +31,7 @@ Hami
 https://github.com/htorun/dbtableprinter
 
  */
-package com.jdbc;
+package com.ozzot.jdbc.printer;
 
 import java.sql.*;
 import java.util.ArrayList;
