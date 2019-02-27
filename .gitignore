@@ -1,8 +1,8 @@
 /.idea
 /target
 /src/main/resources
-/src/main/java/com/jdbc/TestClass.java
-/src/main/java/com/jdbc/PrintTable.java
+/src/main/java/com/ozzot/jdbc/TestClass.java
+/src/main/java/com/ozzot/jdbc/PrintTable.java
 /src/test/resources
 /src/db.properties
 
